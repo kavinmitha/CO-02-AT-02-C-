@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+class Member
+{
+private:
+    int memberID;
+    string name;
+    string planType;
+    int fee;
+
+public:
+    void getData()
+    {
+        cout << "Enter Member ID: ";
+        cin >> memberID;
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+        cout << "Enter Plan Type (Basic/Premium/VIP): ";
+        cin >> planType;
+
+        if (planType == "Basic")
+            fee = 1000;
+        else if (planType == "Premium")
+            fee = 2000;
+        else if (planType == "VIP")
+            fee = 3000;
+        else
+        {
+            cout << "Invalid Plan!" << endl;
+            fee = 0;
+        }
+    }
+
+    void display()
+    {
+        cout << "\nMember ID: " << memberID;
+        cout << "\nName: " << name;
+        cout << "\nPlan Type: " << planType;
+        cout << "\nFee: Rs." << fee << endl;
+    }
+};
+
+int main()
+{
+    int n;
+
+    cout << "Enter Number of Members: ";
+    cin >> n;
+
+    Member m[10];
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nEnter Details of Member " << i + 1 << endl;
+        m[i].getData();
+    }
+
+    cout << "\n--- Membership Details ---\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        m[i].display();
+    }
+
+    cout << "\nTotal Active Members: " << n;
+
+    return 0;
+}
