@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Warehouse
+{
+private:
+    int itemID;
+    string name;
+    int quantity;
+    string location;
+
+public:
+    void getData()
+    {
+        cout << "Enter Item ID: ";
+        cin >> itemID;
+
+        cout << "Enter Item Name: ";
+        cin >> name;
+
+        cout << "Enter Quantity: ";
+        cin >> quantity;
+
+        if (quantity < 0)
+        {
+            cout << "Invalid Quantity! Setting to 0." << endl;
+            quantity = 0;
+        }
+
+        cout << "Enter Location: ";
+        cin >> location;
+    }
+
+    void display()
+    {
+        cout << "\nItem ID: " << itemID;
+        cout << "\nItem Name: " << name;
+        cout << "\nQuantity: " << quantity;
+        cout << "\nLocation: " << location << endl;
+    }
+};
+
+int main()
+{
+    int n;
+
+    cout << "Enter Number of Items: ";
+    cin >> n;
+
+    Warehouse w[10];
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nEnter Details of Item " << i + 1 << endl;
+        w[i].getData();
+    }
+
+    cout << "\n--- Inventory Details ---\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        w[i].display();
+    }
+
+    cout << "\nTotal Items Stored: " << n;
+
+    return 0;
+}
