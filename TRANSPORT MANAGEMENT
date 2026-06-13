@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Violation
+{
+private:
+    string vehicleNo;
+    string ownerName;
+    string violationType;
+    int fine;
+
+public:
+    void getdata()
+    {
+        cout << "Enter Vehicle Number: ";
+        cin >> vehicleNo;
+
+        cout << "Enter Owner Name: ";
+        cin >> ownerName;
+
+        cout << "Enter Violation Type (Signal/Helmet/Speed): ";
+        cin >> violationType;
+
+        if (violationType == "Signal")
+            fine = 1000;
+        else if (violationType == "Helmet")
+            fine = 500;
+        else if (violationType == "Speed")
+            fine = 1500;
+        else
+            fine = 0;
+    }
+
+    void display()
+    {
+        cout << "\nVehicle Number: " << vehicleNo;
+        cout << "\nOwner Name: " << ownerName;
+        cout << "\nViolation Type: " << violationType;
+        cout << "\nFine Amount: " << fine << endl;
+    }
+};
+
+int main()
+{
+    int n;
+
+    cout << "Enter number of violations: ";
+    cin >> n;
+
+    Violation v[10];
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nEnter details for violation " << i + 1 << endl;
+        v[i].getdata();
+    }
+
+    cout << "\n--- Violation Report ---\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        v[i].display();
+    }
+
+    cout << "\nTotal Violations = " << n;
+
+    return 0;
+}
